@@ -83,7 +83,7 @@ public class Bussola extends JavaPlugin implements CommandExecutor {
             long remainingCooldown = 5000 - elapsedTime;
 
             if (remainingCooldown > 0) {
-                int seconds = (int) (remainingCooldown / 1000);
+                int seconds = (int) Math.ceil((double) (remainingCooldown / 1000);
                 player.sendMessage("Devi aspettare ancora " + seconds + " secondi prima di poter usare nuovamente il comando.");
                 return true;
             }
