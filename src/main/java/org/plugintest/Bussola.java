@@ -56,9 +56,6 @@ public class Bussola extends JavaPlugin implements CommandExecutor {
 
         switch (option) {
             case "attiva":
-                if (countdownTasks.containsKey(player)) {
-                    countdownTasks.get(player).cancel();
-                }
                 executeNextCommand(player, true);
                 break;
             case "disattiva":
@@ -74,7 +71,6 @@ public class Bussola extends JavaPlugin implements CommandExecutor {
                 break;
         }
 
-
         String playerName = player.getName();
         if (commandCooldowns.containsKey(playerName)) {
             long lastUsage = commandCooldowns.get(playerName);
@@ -83,8 +79,12 @@ public class Bussola extends JavaPlugin implements CommandExecutor {
             long remainingCooldown = 5000 - elapsedTime;
 
             if (remainingCooldown > 0) {
-                int seconds = (int) (remainingCooldown / 1000);
-                player.sendMessage("Devi aspettare ancora " + seconds + " secondi prima di poter usare nuovamente il comando.");
+                int seconds = (int) Math.ceil((double)remainingCooldown / 1000);
+                if (seconds == 1) {
+                    player.sendMessage("Devi aspettare ancora 1 secondo prima di poter usare nuovamente il comando.");
+                } else {
+                    player.sendMessage("Devi aspettare ancora " + seconds + " secondi prima di poter usare nuovamente il comando.");
+                }
                 return true;
             }
         }
@@ -135,7 +135,7 @@ public class Bussola extends JavaPlugin implements CommandExecutor {
     }
 
     private void executeCountdown(Player player, boolean activate) {
-        int seconds = 4;
+        int seconds = 5;
 
         if (!activate) {
             player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "Countdown annullato.");
