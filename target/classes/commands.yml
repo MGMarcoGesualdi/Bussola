@@ -1,0 +1,8 @@
+#**************************#
+           COMANDI
+#**************************#
+
+commands:
+  - "/bussola attiva"
+  - "/bussola disattiva"
+  - "/bussolareload"

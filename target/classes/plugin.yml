@@ -1,0 +1,26 @@
+name: Bussola
+author: "MG AKA PANDAA"
+version: 1.0
+main: org.plugintest.Bussola
+api-version: '1.19'
+
+commands:
+  bussola:
+    description: Attiva o Disattiva la bussola.
+    usage: /bussola [attiva | disattiva]
+
+  bussolareload:
+    description: Ricarica i comandi della bussola.
+    usage: /bussolareload
+
+messages:
+  cooldown: "Devi aspettare ancora %seconds% secondi prima di eseguire nuovamente questo comando."
+  noPermission: "Non hai il permesso per eseguire questo comando."
+  invalidOption: "Opzione non valida. Opzioni disponibili: attiva, disattiva."
+  activated: "Hai attivato la bussola."
+  deactivated: "Hai disattivato la bussola."
+  commandsReloaded: "Comandi ricaricati dalla configurazione."
+
+settings:
+  countdownDurationSeconds: 5
+  ticksPerSecond: 20
