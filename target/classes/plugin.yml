@@ -1,9 +1,0 @@
-name: Bussola
-version: '1.0-SNAPSHOT'
-main: org.plugintest.Bussola
-api-version: '1.19'
-
-commands:
-  bussola:
-    description: Attiva/Disattiva la bussola
-    usage: /<command>
